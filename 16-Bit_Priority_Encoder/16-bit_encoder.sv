@@ -1,4 +1,5 @@
 
+`timescale 1ns/1ps
 
 module encoder4 (
     input  logic A0, A1, A2, A3,
@@ -7,33 +8,33 @@ module encoder4 (
 );
     always_comb 
     begin
-        V  = 0;
-        Q0 = 0;
-        Q1 = 0;
+        V  = '0;
+        Q0 = '0;
+        Q1 = '0;
 
         if(A3) 
         begin
-            V  = 1;
-            Q0 = 1;
-            Q1 = 1;
+            V  = '1;
+            Q0 = '1;
+            Q1 = '1;
         end 
         else if (A2)
         begin
-            V  = 1;
-            Q0 = 0;
-            Q1 = 1;           
+            V  = '1;
+            Q0 = '0;
+            Q1 = '1;           
         end 
         else if (A1)
         begin
-            V  = 1;
-            Q0 = 1;
-            Q1 = 0;           
+            V  = '1;
+            Q0 = '1;
+            Q1 = '0;           
         end 
         else if (A0)
         begin
-            V  = 1;
-            Q0 = 0;
-            Q1 = 0;           
+            V  = '1;
+            Q0 = '0;
+            Q1 = '0;           
         end                
     end
 endmodule
@@ -45,11 +46,11 @@ module mux4 (
 );
     always_comb
     begin
-        if(S0 == 1 && S1 == 0)
+        if(S0 == '1 && S1 == '0)
             Q = X1;
-        else if(S0 == 0 && S1 == 1)
+        else if(S0 == '0 && S1 == '1)
             Q = X2;
-        else if(S0 == 1 && S1 == 1)
+        else if(S0 == '1 && S1 == '1)
             Q = X3;
         else
             Q = X0; 
@@ -65,6 +66,7 @@ module encoder16 (
     output logic Q0, Q1, Q2, Q3
 );
     logic v0, v1, v2, v3;
+    logic s0, s1;
     logic q0_1, q0_0, q1_1, q1_0, q2_1, q2_0, q3_1, q3_0;
 
     encoder4 enc0 (
