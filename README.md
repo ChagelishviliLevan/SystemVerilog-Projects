@@ -16,8 +16,6 @@ My long-term goal is to design and implement my own CPU in SystemVerilog and lea
 
 | Project | Description |
 | --- | --- |
-## Projects
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | [16-input Priority Encoder](16-Bit_Priority_Encoder/) | A hierarchical priority encoder built from 4-input priority encoders and multiplexers, with a testbench.                                 |
 | [4-bit Ripple-Carry Adder](4-Bit_adder/)              | A structural 4-bit adder built from four 1-bit full adders, with a testbench.                                                            |
 | [8-bit ALU](ALU/)                                     | A combinational arithmetic logic unit supporting AND, OR, complement, rotate-through-carry, addition, subtraction, and move operations.  |
