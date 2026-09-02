@@ -1,3 +1,17 @@
+/*
+
+* Testbench source:
+* This testbench was taken/adapted from the course
+* "Digital Design with SystemVerilog HDL + Introduction to UVM"
+* for learning and verification purposes.
+*
+* Course:
+* https://www.udemy.com/course/digital-design-with-systemverilog-hdl/
+*
+* The design under test (DUT) was implemented by me as part of my
+* SystemVerilog learning projects.
+  */
+  
 `timescale 1ns/1ps
 
 module adder4_struct_tb;
