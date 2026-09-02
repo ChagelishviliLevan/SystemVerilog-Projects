@@ -48,22 +48,26 @@ These are the courses, books, and websites I use throughout my learning journey.
 
 ## Tools
 
-- **Icarus Verilog** for compiling and simulating SystemVerilog designs.
-- **GTKWave** for inspecting simulation waveforms.
-- **Git and GitHub** for version control and documenting my progress.
+Icarus Verilog for compiling and simulating SystemVerilog designs.
+VaporView for inspecting VCD simulation waveforms directly in Visual Studio Code.
+Visual Studio Code for writing and managing SystemVerilog source files.
+Git and GitHub for version control and documenting my progress.
+Running the simulations
 
-## Running the adder simulation
+The commands below should be executed from the repository root.
 
-From the repository root, run:
+16-input priority encoder
+cd 16-Bit_Priority_Encoder
 
-```bash
-cd 4-Bit_adder
-iverilog -g2012 -s adder4_struct_tb -o adder_sim 4-bit_adder.sv tb.sv
-vvp adder_sim
-gtkwave dump.vcd
-```
+iverilog -g2012 -Wall \
+  -s encoder16_tb \
+  -o encoder_sim \
+  16-bit_encoder.sv tb.sv
 
-Waveform viewing requires the testbench to generate `dump.vcd`.
+vvp encoder_sim
+code dump.vcd
+
+The testbenches generate dump.vcd. With the VaporView extension installed and configured as the default VCD viewer, code dump.vcd opens the waveform directly in Visual Studio Code.
 
 ## About this repository
 
