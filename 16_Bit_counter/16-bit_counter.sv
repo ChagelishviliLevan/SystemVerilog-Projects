@@ -3,7 +3,7 @@
 module counter16 (
     input  logic        clk,
     input  logic        rst,
-    input  logic        inc, 
+    input  logic        inc,
     output logic [15:0] Q
 );
     logic [7:0] qL;
@@ -15,7 +15,7 @@ module counter16 (
     
     register regL(
         .clk(clk),
-        .rst(rst), 
+        .rst(rst),
         .load(1'b0),
         .inc(inc),
         .rotate_right(1'b0),
@@ -25,7 +25,7 @@ module counter16 (
 
     register regH(
         .clk(clk),
-        .rst(rst), 
+        .rst(rst),
         .load(1'b0),
         .inc(carry),
         .rotate_right(1'b0),

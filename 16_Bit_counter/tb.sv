@@ -55,20 +55,20 @@ module counter16_tb;
         if (Q !== 16'h0000) begin
             $display("FAIL: post-reset Q=%h exp=0000", Q); errors++;
         end
- 
+
         // ---- Hold (inc=0) for 2 cycles ----
         repeat (2) begin
         @(posedge clk); 
         #1;
         if (Q !== exp) begin
-            $display("FAIL: hold Q=%h exp=%h", Q, exp); 
+            $display("FAIL: hold Q=%h exp=%h", Q, exp);
             errors++;
         end
     end
 
     // ---- Count up with inc=1 for 260 cycles ----
     inc = 1'b1;
-    for (i = 0; i < 260; i++) 
+    for (i = 0; i < 260; i++)
     begin
         @(posedge clk);
         exp = exp + 16'd1;       // reference model
@@ -80,22 +80,22 @@ module counter16_tb;
 
     // Sanity: at this point we crossed 0x00FF -> 0x0100
     // and should be at 0x0104 (from 0 + 260)
-
     // ---- Hold again (inc=0) for 5 cycles ----
     inc = 1'b0;
-    repeat (5) 
+    repeat (5)
     begin
-        @(posedge clk); 
+        @(posedge clk);
         #1;
         if (Q !== exp) begin
-            $display("FAIL: hold(after count) Q=%h exp=%h", Q, exp); errors++;
+            $display("FAIL: hold(after count) Q=%h exp=%h", Q, exp);
+            errors++;
         end
     end
 
     // ---- Summary ----
-    if (errors == 0) 
+    if (errors == 0)
         $display("TEST PASSED");
-    else             
+    else
         $display("TEST FAILED -- %0d mismatches", errors);
         $finish;
     end
